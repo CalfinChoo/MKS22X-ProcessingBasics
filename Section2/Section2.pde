@@ -16,13 +16,13 @@ void setup() {
 */
 void gasket(int levels, float v1x, float v1y, float v2x, float v2y, float v3x, float v3y) {
     //YOU WRITE THIS METHOD!
+    fill(255, 0, 0);
+    triangle(v1x, v1y, v2x, v2y, v3x, v3y);
+    fill(50);
     gasketHelper(levels, 0, v1x, v1y, v2x, v2y, v3x, v3y);
 }
 void gasketHelper(int levels, int stageTracker, float v1x, float v1y, float v2x, float v2y, float v3x, float v3y) {
-    fill(255, 0, 0);
-    triangle(v1x, v1y, v2x, v2y, v3x, v3y);
     if (levels > 0) {
-       fill(50);
        triangle((v3x-v1x)/2 + v1x, (v3y-v1y)/2 + v1y, (v2x-v3x)/2 + v3x, (v2y-v3y)/2 + v3y, (v1x + v2x) / 2, v1y);
        for (int i = 0; i < Math.pow(3, stageTracker); i++) {
          gasketHelper(levels - 1, stageTracker + 1, (v3x-v1x)/2 + v1x, (v3y-v1y)/2 + v1y, (v2x-v3x)/2 + v3x, (v2y-v3y)/2 + v3y, v3x, v3y);
